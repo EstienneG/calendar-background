@@ -1,15 +1,15 @@
 /* Image elements */
 body {
-  --same-0p0: rgba(255,255,255, 0.0);
-  --same-0p1: rgba(255,255,255, 0.1);
-  --same-0p3: rgba(255,255,255, 0.3);
-  --same-0p5: rgba(255,255,255, 0.5);
-  --same-0p8: rgba(255,255,255, 0.8);
-  --oppo-0p0: rgba(  0,  0,  0, 0.0);
-  --oppo-0p1: rgba(  0,  0,  0, 0.1);
-  --oppo-0p3: rgba(  0,  0,  0, 0.3);
-  --oppo-0p5: rgba(  0,  0,  0, 0.5);
-  --oppo-0p8: rgba(  0,  0,  0, 0.8);
+  --same-0p0: rgba(255, 255, 255, 0.0);
+  --same-0p1: rgba(255, 255, 255, 0.1);
+  --same-0p3: rgba(255, 255, 255, 0.3);
+  --same-0p5: rgba(255, 255, 255, 0.5);
+  --same-0p8: rgba(255, 255, 255, 0.8);
+  --oppo-0p0: rgba(0, 0, 0, 0.0);
+  --oppo-0p1: rgba(0, 0, 0, 0.1);
+  --oppo-0p3: rgba(0, 0, 0, 0.3);
+  --oppo-0p5: rgba(0, 0, 0, 0.5);
+  --oppo-0p8: rgba(0, 0, 0, 0.8);
   --oppo: black;
   --same: white;
 
@@ -30,22 +30,27 @@ body {
   --settings-header-text: var(--oppo-0p8);
   --settings-regular-text: var(--oppo-0p5);
 }
+
+
+
 body.xtnDarkOverlay {
-  --same-0p0: rgba(  0,  0,  0, 0.0);
-  --same-0p1: rgba(  0,  0,  0, 0.1);
-  --same-0p3: rgba(  0,  0,  0, 0.3);
-  --same-0p5: rgba(  0,  0,  0, 0.5);
-  --same-0p8: rgba(  0,  0,  0, 0.8);
-  --oppo-0p0: rgba(255,255,255, 0.0);
-  --oppo-0p1: rgba(255,255,255, 0.1);
-  --oppo-0p3: rgba(255,255,255, 0.3);
-  --oppo-0p5: rgba(255,255,255, 0.5);
-  --oppo-0p8: rgba(255,255,255, 0.8);
+  --same-0p0: rgba(0, 0, 0, 0.0);
+  --same-0p1: rgba(0, 0, 0, 0.1);
+  --same-0p3: rgba(0, 0, 0, 0.3);
+  --same-0p5: rgba(0, 0, 0, 0.5);
+  --same-0p8: rgba(0, 0, 0, 0.8);
+  --oppo-0p0: rgba(255, 255, 255, 0.0);
+  --oppo-0p1: rgba(255, 255, 255, 0.1);
+  --oppo-0p3: rgba(255, 255, 255, 0.3);
+  --oppo-0p5: rgba(255, 255, 255, 0.5);
+  --oppo-0p8: rgba(255, 255, 255, 0.8);
   --oppo: white;
   --same: black;
 }
 
-#xtnImgHolder, #xtnImg, #xtnImgFade {
+#xtnImgHolder,
+#xtnImg,
+#xtnImgFade {
   height: 100%;
   width: 100%;
   position: absolute;
@@ -81,12 +86,9 @@ body.xtnFrameOnly #xtnImgHolder {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  background-position: center;
   background-size: cover;
-}
-
-#xtnImgFade {
-  background-color: var(--same-0p3);
+  position: relative;
+  z-index: 1;
 }
 
 #xtnBtn {
@@ -118,23 +120,29 @@ body.xtnFrameOnly #xtnImgHolder {
 
 
 /* Date picker calendar */
-.k50Dh, .f1QMue, .IOneve,
-.sOjuj
-{
+.k50Dh,
+.f1QMue,
+.IOneve,
+.sOjuj {
   color: var(--minical-text) !important;
 }
 
 
 /* Sidebar... */
-.mkaajd, .o8t45d /* Calendar lists */ 
-{
+.mkaajd,
+.o8t45d
+
+/* Calendar lists */
+  {
   color: var(--title-text) !important;
 }
 
 
 
-.toUqff /* Calendar list. */ 
-{
+.toUqff
+
+/* Calendar list. */
+  {
   color: var(--regular-text) !important;
 }
 
@@ -142,9 +150,11 @@ body.xtnFrameOnly #xtnImgHolder {
 .R6TFwe {
   background-color: transparent !important
 }
+
 .R6TFwe .iHNmdb {
   color: var(--heading-text) !important;
 }
+
 .EDDeke {
   border-right-color: var(--oppo-0p1) !important;
 }
@@ -152,31 +162,38 @@ body.xtnFrameOnly #xtnImgHolder {
 /* grid borders: */
 .YvjgZe,
 /* month borders: */
-.t8qpF, 
+.t8qpF,
 .PhLhOd,
 .w6FdBf,
 .MGaLHf {
   border-right-color: var(--oppo-0p1) !important;
 }
-.QIadxc, /* month */
-.FLFkR, /* month */
+
+.QIadxc,
+/* month */
+.FLFkR,
+/* month */
 .mmsF1c::after {
   border-bottom-color: var(--oppo-0p1) !important;
 }
+
 /* Weird that these got disabled... */
 .SU7tYb,
 .yEkOpe:last-child {
   border-right: var(--oppo-0p1) 1px solid !important;
 }
+
 /* ugh... ew. */
 .MVMVEe {
   border-left-color: var(--oppo-0p1) !important;
   border-right-width: 0px !important;
 }
 
-.yEkOpe, .CIFHgc {
+.yEkOpe,
+.CIFHgc {
   border-right-color: var(--oppo-0p1) !important;
 }
+
 .XnnJrc.Wyo4Qe .TKMrfe {
   top: 0 !important;
   border-top-left-radius: 0px !important;
@@ -193,11 +210,17 @@ body.xtnFrameOnly #xtnImgHolder {
 .akJTWe {
   background-color: var(--oppo-0p1) !important;
 }
+
 .PhLhOd .wy3aMe,
 .akJTWe {
   color: var(--oppo) !important;
 }
-.RAaXne { background-color: transparent !important; } /* Main grid. */
+
+.RAaXne {
+  background-color: transparent !important;
+}
+
+/* Main grid. */
 
 .dkNwF .yzYBvd {
   color: var(--oppo) !important;
@@ -216,6 +239,7 @@ body.xtnFrameOnly #xtnImgHolder {
 .EeuFAf {
   color: var(--oppo) !important;
 }
+
 /* day numbers in month: */
 .o5s4T .w48V4c {
   color: var(--oppo-0p8) !important;
@@ -225,22 +249,30 @@ body.xtnFrameOnly #xtnImgHolder {
 .KF4T6b.UflSff {
   color: var(--dimmed) !important;
 }
-.KF4T6b.qqMC3e, .KF4T6b.smECzc { /* old task chips: */
+
+.KF4T6b.qqMC3e,
+.KF4T6b.smECzc {
+  /* old task chips: */
   color: var(--oppo-0p5) !important;
 }
-.KF4T6b.smECzc, .KF4T6b.KCIIIb {
+
+.KF4T6b.smECzc,
+.KF4T6b.KCIIIb {
   color: var(--month-chip-hover-text) !important;
   background-color: rgba(255, 255, 255, 0.3) !important;
   border-radius: 4px;
 }
-.KF4T6b.smECzc:hover, .KF4T6b.KCIIIb:hover {  /* Hovered chips. */
+
+.KF4T6b.smECzc:hover,
+.KF4T6b.KCIIIb:hover {
+  /* Hovered chips. */
   background-color: var(--chip-hover) !important;
 }
 
 /* Other: */
 
 #gb,
-#gb > div,
+#gb>div,
 .v83gc,
 .OCQPo,
 .tNDBE,
@@ -249,7 +281,7 @@ body.xtnFrameOnly #xtnImgHolder {
 .GENA3c,
 .YvjgZe.F262Ye:after,
 .xWId8e,
-.a0xMze  {
+.a0xMze {
   background-color: var(--same-0p1) !important;
 }
 
@@ -274,10 +306,10 @@ body.xtnFrameOnly #xtnImgHolder {
 .Zlotdb,
 .XnnJrc.Wyo4Qe .TKMrfe,
 .Rj2Mlf:not(:disabled) {
-  background-color: var(--same-0p1)  !important;
+  background-color: var(--same-0p1) !important;
 }
 
-.Xro3Db-nUpftc > div {
+.Xro3Db-nUpftc>div {
   background-color: transparent !important;
 }
 
@@ -286,12 +318,12 @@ body.xtnFrameOnly #xtnImgHolder {
   background-color: transparent !important;
 }
 
-.Xro3Db-nUpftc > div[role="menu"] {
+.Xro3Db-nUpftc>div[role="menu"] {
   background-color: white !important;
 }
 
 .NkK3Fc,
-.rpCPrc > div,
+.rpCPrc>div,
 .MSZkRb,
 .zRt28b,
 .uQ1ixe .snByac,
@@ -304,18 +336,21 @@ body.xtnFrameOnly #xtnImgHolder {
 .MANBAf,
 .GENA3c,
 .Vrr33d,
-.hGcgEd
-{
-  color: var(--oppo) !important; /* Override var(--on-surface) instead? */
+.hGcgEd {
+  color: var(--oppo) !important;
+  /* Override var(--on-surface) instead? */
 }
 
 .U26fgb.I12f0b .snByac {
   color: var(--heading-text) !important;
 }
 
-.wBon4c, /* calendar list */
-.Zlotdb /* find a time sidebar */
-{
+.wBon4c,
+/* calendar list */
+.Zlotdb
+
+/* find a time sidebar */
+  {
   --on-surface: var(--oppo) !important;
 }
 
@@ -329,18 +364,20 @@ body.xtnFrameOnly #xtnImgHolder {
 .XvhY1d,
 .jefcFd,
 .zC2ZSb,
-.uW2Fw-P5QLlc /* Appearance popup */
- {
+.uW2Fw-P5QLlc
+
+/* Appearance popup */
+  {
   color: var(--popup-text) !important;
   --heading-text: var(--popup-text);
   --button-fg: var(--gm3-sys-color-on-surface-variant);
   --button-bg: transparent;
   --regular-text: var(--gm3-button-text-label-text-color);
-  --minical-hover: rgba(  0,  0,  0, 0.1);
+  --minical-hover: rgba(0, 0, 0, 0.1);
   --minical-text: var(--gm3-sys-color-on-surface);
 
-  --month-chip-text: rgba(  0,  0,  0, 0.8);
-  --month-chip-hover-text: rgba(  0,  0,  0, 0.8);
+  --month-chip-text: rgba(0, 0, 0, 0.8);
+  --month-chip-hover-text: rgba(0, 0, 0, 0.8);
   --title-text: var(--gm3-sys-color-on-surface);
 }
 
@@ -353,6 +390,7 @@ body.xtnFrameOnly #xtnImgHolder {
 .XvhY1d .kMp0We {
   color: var(--popup-text) !important;
 }
+
 .PnGFPb .kMp0We {
   color: #222 !important;
 }
@@ -374,12 +412,13 @@ body.xtnFrameOnly #xtnImgHolder {
 /* Overrides for text witin the form body. */
 .nBzcnc .Fgl6fe-fmcmS-yrriRe:not(.Fgl6fe-fmcmS-yrriRe-OWXEXe-OWB6Me) .Fgl6fe-fmcmS-wGMbrd,
 .ubAIBb .Fgl6fe-fmcmS-yrriRe:not(.Fgl6fe-fmcmS-yrriRe-OWXEXe-OWB6Me) .Fgl6fe-fmcmS-wGMbrd {
-  color: rgba(  0,  0,  0, 0.8) !important; /* Always on light background */
+  color: rgba(0, 0, 0, 0.8) !important;
+  /* Always on light background */
 }
 
 .j3nyw .DyOaYd {
   /* Unfortunately, .DyOaYd is below .j3nyw */
-  color: rgba(  0,  0,  0, 0.8) !important;
+  color: rgba(0, 0, 0, 0.8) !important;
 }
 
 /* Primary button. */
@@ -404,6 +443,7 @@ body.xtnFrameOnly #xtnImgHolder {
 .NI2kfb {
   color: inherit !important;
 }
+
 .BoZa0b .kMp0We,
 .jefcFd .kMp0We,
 .FzsTU .kMp0We,
@@ -418,7 +458,7 @@ body.xtnFrameOnly #xtnImgHolder {
 /* .wy3aMe, */
 .SoBqBf,
 .OmwDud {
-/* .pqE3fc .wy3aMe { */
+  /* .pqE3fc .wy3aMe { */
   color: var(--same) !important;
 }
 
@@ -426,11 +466,13 @@ body.xtnFrameOnly #xtnImgHolder {
 .bN97Pc .OmwDud {
   color: var(--oppo-0p8) !important;
 }
+
 .bN97Pc .SOVd1b {
   --on-surface: var(--oppo-0p8);
 }
+
 .bN97Pc .SOVd1b:hover {
-  --on-surface: rgba(  0,  0,  0, 0.8);
+  --on-surface: rgba(0, 0, 0, 0.8);
 }
 
 .Xro3Db-nUpftc.ymbhmd,
@@ -447,7 +489,7 @@ body.xtnFrameOnly #xtnImgHolder {
 
 /* Day picker */
 .RDlrG {
-  --minical-background: rgba(0,0,0,0.1) !important;
+  --minical-background: rgba(0, 0, 0, 0.1) !important;
 }
 
 .HkPXyb {
@@ -459,6 +501,7 @@ body.xtnFrameOnly #xtnImgHolder {
   background-color: transparent !important;
   border-radius: 0 !important;
 }
+
 .W0m3G .r4nke:hover,
 .lR3h6d .CIy9F {
   background-color: var(--minical-hover) !important;
@@ -486,9 +529,11 @@ body.xtnFrameOnly #xtnImgHolder {
 }
 
 /* Today marker, set back to normal: */
-.p6vobf .r4nke, .p6vobf.pWJCO .r4nke, .p6vobf.pWJCO.q2d9Ze .r4nke {
+.p6vobf .r4nke,
+.p6vobf.pWJCO .r4nke,
+.p6vobf.pWJCO.q2d9Ze .r4nke {
   background-color: var(--primary) !important;
-  color: var(--on-primary)  !important;
+  color: var(--on-primary) !important;
 }
 
 /* Includes the new sidebar. */
@@ -500,6 +545,7 @@ body.xtnFrameOnly #xtnImgHolder {
 .HLI7qf {
   background-color: transparent !important;
 }
+
 .U26fgb {
   background-color: var(--button-bg) !important;
   box-sizing: border-box;
@@ -509,14 +555,15 @@ body.xtnFrameOnly #xtnImgHolder {
   color: var(--button-fg) !important;
 }
 
-.j9Fkxf:not(:disabled), 
-.AeBiU-vQzf8d { /* Top bar text buttons */
+.j9Fkxf:not(:disabled),
+.AeBiU-vQzf8d {
+  /* Top bar text buttons */
   color: var(--button-fg) !important;
 }
 
 .U26fgb.qmMNRc,
 .U26fgb:hover.qmMNRc {
-  color: rgba(  0,  0,  0, 0.5) !important;
+  color: rgba(0, 0, 0, 0.5) !important;
 }
 
 /* Month chips: */
@@ -524,6 +571,7 @@ body.xtnFrameOnly #xtnImgHolder {
 .g3dbUc.smECzc {
   color: var(--month-chip-text) !important;
 }
+
 .KF4T6b.smECzc:hover,
 .g3dbUc.smECzc:hover {
   color: var(--month-chip-hover-text) !important;
@@ -538,9 +586,11 @@ body.xtnFrameOnly #xtnImgHolder {
 .QQYuzf {
   background-color: var(--same-0p1) !important;
 }
+
 .YO50ue {
   background-color: var(--same-0p1) !important;
 }
+
 /* World clop section */
 .Az5uJd.RLj2u {
   background-color: var(--same-0p3) !important;
@@ -550,23 +600,29 @@ body.xtnFrameOnly #xtnImgHolder {
 .MDfQ7 {
   background-color: var(--same-0p3) !important;
   color: var(--settings-regular-text) !important;
-  padding-bottom: 8px !important; /* ew */
+  padding-bottom: 8px !important;
+  /* ew */
 }
+
 .MDfQ7 h2 {
   color: var(--settings-header-text) !important;
 }
+
 .MDfQ7 .oj6B2e {
   color: var(--oppo) !important;
 }
+
 .MDfQ7 .U26fgb {
   --button-bg: #f1f3f4 !important;
   --button-fg: #222 !important;
   background-color: transparent !important;
   box-sizing: content-box !important;
 }
+
 .MDfQ7 .HLI7qf {
   background-color: #f1f3f4 !important;
 }
+
 .MDfQ7 .OspAke,
 .MDfQ7 .Ccr7Rb,
 .MDfQ7 .WpDZC,
@@ -576,21 +632,28 @@ body.xtnFrameOnly #xtnImgHolder {
   /* Why are these all set manually? :( */
   color: inherit !important;
 }
+
 .MDfQ7 .Kb2sf,
 .MDfQ7 .Qfwgwb {
   color: #222 !important;
 }
+
 .MDfQ7 .Kb2sf.n48mwe {
-  color: var(--settings-header-text) !important; /* uneditable. */
+  color: var(--settings-header-text) !important;
+  /* uneditable. */
 }
 
 
 /* Settings side tabs */
-.cAYGed.KKjvXb .Ioup7e, .cAYGed.KKjvXb .BMQm1d {
+.cAYGed.KKjvXb .Ioup7e,
+.cAYGed.KKjvXb .BMQm1d {
   background-color: var(--oppo-0p3) !important;
   color: var(--same-0p8) !important;
 }
-.kMp0We.Wm6kRe.huVZvb:hover, .GrxScd .SWigMc.Wm6kRe.huVZvb:focus, .kMp0We.gk6SMd.huVZvb {
+
+.kMp0We.Wm6kRe.huVZvb:hover,
+.GrxScd .SWigMc.Wm6kRe.huVZvb:focus,
+.kMp0We.gk6SMd.huVZvb {
   background-color: var(--oppo-0p1) !important;
 }
 
@@ -619,7 +682,7 @@ body.xtnFrameOnly #xtnImgHolder {
 .DyOaYd .U26fgb,
 .U26fgb:hover,
 #xtnBtn:hover {
-  --button-fg: rgba(  0,  0,  0, 0.8);
+  --button-fg: rgba(0, 0, 0, 0.8);
   --button-bg: #f1f3f4;
 }
 
@@ -633,8 +696,7 @@ div.rF3YF .Ce1Y1c,
 .fKz7Od,
 .KU3dEf svg,
 #gb .ec9Aq,
-#xtnBtn
-{
+#xtnBtn {
   color: var(--button-fg) !important;
   fill: var(--button-fg) !important;
 }
@@ -642,26 +704,28 @@ div.rF3YF .Ce1Y1c,
 /* Button text above pictures on events. */
 .fEQAz {
   --button-fg: white !important;
-  --button-bg: rgba(255,255,255, 0.1) !important;
+  --button-bg: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* Button text on toolbars */
 div[role="toolbar"] .U26fgb {
-  --button-fg: rgba(0,0,0,0.3) !important;
+  --button-fg: rgba(0, 0, 0, 0.3) !important;
   --button-bg: transparent !important;
 }
+
 div[role="toolbar"] .U26fgb:hover {
-  --button-bg: rgba(0,0,0,0.1) !important;
+  --button-bg: rgba(0, 0, 0, 0.1) !important;
 }
+
 div[role="toolbar"] .PqAscf {
-  border-left-color: rgba(0,0,0,0.1) !important;
+  border-left-color: rgba(0, 0, 0, 0.1) !important;
 }
 
 /* full-page edit, make the color pick button look hovered always: */
 .Cv8pif .U26fgb,
 .Cv8pif .U26fgb:hover {
-  --button-fg: rgba(0,0,0,0.8) !important;
-  --button-bg: rgba(255,255,255,0.8) !important;
+  --button-fg: rgba(0, 0, 0, 0.8) !important;
+  --button-bg: rgba(255, 255, 255, 0.8) !important;
 }
 
 .TgcD5e.CCDcoc .zHQkBf {
@@ -676,6 +740,7 @@ div[role="toolbar"] .PqAscf {
 .IAQE3d {
   color: var(--regular-text) !important;
 }
+
 .j3nyw {
   color: var(--regular-text) !important;
 }
@@ -683,8 +748,7 @@ div[role="toolbar"] .PqAscf {
 .ThdJC,
 .nWBDde,
 .r5F2ye .VZhFab,
-.rhtYVe .snByac
-{
+.rhtYVe .snByac {
   color: var(--heading-text) !important;
 }
 
@@ -692,26 +756,32 @@ div[role="toolbar"] .PqAscf {
 .g3dbUc.KCIIIb {
   color: var(--oppo-0p8) !important;
 }
+
 .g3dbUc.KCIIIb:hover {
   color: var(--same-0p8) !important;
-  background-color:  var(--oppo-0p8) !important;
+  background-color: var(--oppo-0p8) !important;
 }
 
 /* Lines on day/month view: */
 .sJ9Raf::after {
   border-bottom-color: var(--oppo-0p1) !important;
 }
+
 .BiKU4b {
   border-right-color: var(--oppo-0p1) !important;
 }
 
 /* Weird gradient lines at top of sections */
-.J2aUD.T8M5bd .sx5BGe::before, .SGFqbe.T8M5bd .sx5BGe::before {
-  background-image: linear-gradient(to right,var(--same-0p1),rgba(255,255,255,0)) !important;
+.J2aUD.T8M5bd .sx5BGe::before,
+.SGFqbe.T8M5bd .sx5BGe::before {
+  background-image: linear-gradient(to right, var(--same-0p1), rgba(255, 255, 255, 0)) !important;
 }
-.J2aUD.T8M5bd .qmFsL::after, .SGFqbe.T8M5bd .qmFsL::after {
-  background-image: linear-gradient(to left,var(--same-0p1),rgba(255,255,255,0)) !important;
+
+.J2aUD.T8M5bd .qmFsL::after,
+.SGFqbe.T8M5bd .qmFsL::after {
+  background-image: linear-gradient(to left, var(--same-0p1), rgba(255, 255, 255, 0)) !important;
 }
+
 .hEtGGf::after {
   background-image: none !important;
 }
@@ -720,24 +790,29 @@ div[role="toolbar"] .PqAscf {
 .pljXM {
   background-color: transparent !important;
 }
+
 .pljXM h1,
 .pljXM h2 {
   color: var(--heading-text) !important;
 }
+
 .pljXM .LOewLb.KKjvXb {
-  color: rgba(  0,  0,  0, 0.8) !important;
+  color: rgba(0, 0, 0, 0.8) !important;
 }
+
 .NekIXe {
   background-color: var(--same-0p1) !important;
 }
+
 .NekIXe .fKz7Od {
-  --button-fg: rgba(0,0,0,0.8) !important;
+  --button-fg: rgba(0, 0, 0, 0.8) !important;
 }
 
 /* Find a time toolbar */
 div[role="toolbar"].Xo3rO {
   color: var(--heading-text) !important;
 }
+
 div[role="toolbar"].Xo3rO .U26fgb {
   --button-fg: var(--oppo-0p8) !important;
   --button-bg: var(--oppo-0p1) !important;
@@ -753,22 +828,27 @@ this should set the variables directly.
 
 /** Overrides for background-color: var(--surface) */
 .gZ8fdb.F262Ye {
-  background-color: transparent !important; /* Background to the all-day events today. */
+  background-color: transparent !important;
+  /* Background to the all-day events today. */
 }
 
 /** Overrides for color: var(--on-surface) */
 .sVASAd.N4XV7d {
-  color: var(--oppo-0p8) !important; /* Font color for the future numbers in weekly view. */
+  color: var(--oppo-0p8) !important;
+  /* Font color for the future numbers in weekly view. */
 }
+
 .sVASAd.N4XV7d.RKLVef:hover {
-  color: rgba(  0,  0,  0, 0.8) !important;
+  color: rgba(0, 0, 0, 0.8) !important;
 }
 
 /** Overrides for color: var(--on-surface-variant-agm) */
 .nSCxEf.pCcXPe,
 .tWjOu.pCcXPe {
-  color: var(--oppo-0p8) !important; /* Font color for past day numbers in weekly view. */
+  color: var(--oppo-0p8) !important;
+  /* Font color for past day numbers in weekly view. */
 }
+
 .nSCxEf.pCcXPe:hover {
-  color: rgba(  0,  0,  0, 0.8) !important;
+  color: rgba(0, 0, 0, 0.8) !important;
 }
