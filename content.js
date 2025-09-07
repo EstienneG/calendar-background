@@ -30,7 +30,7 @@ function getUserInfo(cb) {
     cb(USER_INFO);
     return;
   }
-  chrome.runtime.sendMessage({'type': 'getUserInfo'}, function(userInfo) {
+  chrome.runtime.sendMessage({ 'type': 'getUserInfo' }, function (userInfo) {
     USER_INFO = userInfo;
     cb(USER_INFO);
   });
@@ -42,9 +42,10 @@ function setImageStyle() {
   chrome.storage.sync.get({
     imageURL: DEFAULT_IMAGE_URLS,
     overlayMode: DEFAULT_OVERLAY_MODE,
-  }, function(items) {
+    transparentOverlay: false,
+  }, function (items) {
     // Also load user details, may be needed for purchased themes:
-    getUserInfo( userInfo => {
+    getUserInfo(userInfo => {
       var imageArray = items.imageURL;
       if (!Array.isArray(imageArray)) {
         imageArray = [imageArray];
@@ -54,7 +55,15 @@ function setImageStyle() {
       if (currentUrl.indexOf(PURCHASE_SERVER) == 0) {
         currentUrl += '&u=' + userInfo.email;
       }
-      document.getElementById('xtnImg').style.backgroundImage = "url('" +  currentUrl + "')";
+
+      // Apply background to calendar container
+      var calendarContainer = document.querySelector('.uEzZIb');
+      if (calendarContainer) {
+        calendarContainer.style.backgroundImage = "url('" + currentUrl + "')";
+        calendarContainer.style.backgroundSize = "cover";
+        calendarContainer.style.backgroundPosition = "center";
+        calendarContainer.style.backgroundAttachment = "fixed";
+      }
 
       // Overlay:
       if (items.overlayMode == 'darkOverlay') {
@@ -62,29 +71,18 @@ function setImageStyle() {
       } else {
         document.body.classList.remove('xtnDarkOverlay');
       }
+
+
     })
   });
 }
 
-function createImageDOM() {
-  var imgHolder = document.createElement('div');
-  var img = document.createElement('div');
-  var imgFade = document.createElement('div');
-  imgHolder.id = 'xtnImgHolder';
-  img.id = 'xtnImg';
-  imgFade.id = 'xtnImgFade'
-  imgHolder.appendChild(img);
-  imgHolder.appendChild(imgFade);
-  return imgHolder;
-}
+
 
 function installImage() {
   console.log("Installing Calendar background extension...");
-  var banner = document.getElementById('gb');
-  var imageDOM = createImageDOM();
-  banner.parentElement.insertBefore(imageDOM, banner);
   setImageStyle();
-  document.addEventListener("visibilitychange", function() {
+  document.addEventListener("visibilitychange", function () {
     if (document.visibilityState === 'visible') {
       setImageStyle();
     }
