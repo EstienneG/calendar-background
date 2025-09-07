@@ -23,6 +23,7 @@ var DEFAULT_IMAGE_URLS = [
 ];
 
 var DEFAULT_OVERLAY_MODE = 'lghtOverlay';
+var DEFAULT_APPLY_MODE = 'full';
 
 USER_INFO = null;
 function getUserInfo(cb) {
@@ -42,6 +43,7 @@ function setImageStyle() {
   chrome.storage.sync.get({
     imageURL: DEFAULT_IMAGE_URLS,
     overlayMode: DEFAULT_OVERLAY_MODE,
+    applyMode: DEFAULT_APPLY_MODE,
   }, function(items) {
     // Also load user details, may be needed for purchased themes:
     getUserInfo( userInfo => {
@@ -54,7 +56,35 @@ function setImageStyle() {
       if (currentUrl.indexOf(PURCHASE_SERVER) == 0) {
         currentUrl += '&u=' + userInfo.email;
       }
-      document.getElementById('xtnImg').style.backgroundImage = "url('" +  currentUrl + "')";
+      // Apply the background based on the mode
+      if (items.applyMode === 'frame') {
+        // Apply to calendar frame
+        var calendarFrame = document.querySelector('.uEzZIb');
+        if (calendarFrame) {
+          calendarFrame.style.backgroundImage = "url('" + currentUrl + "')";
+          calendarFrame.style.backgroundSize = 'cover';
+          calendarFrame.style.backgroundPosition = 'center';
+          calendarFrame.style.backgroundRepeat = 'no-repeat';
+        }
+        
+        // Hide full-page background
+        var existingBackground = document.getElementById('xtnImgHolder');
+        if (existingBackground) {
+          existingBackground.style.display = 'none';
+        }
+      } else {
+        // Apply to full page
+        var xtnImg = document.getElementById('xtnImg');
+        if (xtnImg) {
+          xtnImg.style.backgroundImage = "url('" + currentUrl + "')";
+        }
+        
+        // Show full-page background if it was hidden
+        var existingBackground = document.getElementById('xtnImgHolder');
+        if (existingBackground) {
+          existingBackground.style.display = 'block';
+        }
+      }
 
       // Overlay:
       if (items.overlayMode == 'darkOverlay') {
@@ -80,14 +110,38 @@ function createImageDOM() {
 
 function installImage() {
   console.log("Installing Calendar background extension...");
-  var banner = document.getElementById('gb');
-  var imageDOM = createImageDOM();
-  banner.parentElement.insertBefore(imageDOM, banner);
-  setImageStyle();
-  document.addEventListener("visibilitychange", function() {
-    if (document.visibilityState === 'visible') {
-      setImageStyle();
+  
+  // Check if we should apply to frame only
+  chrome.storage.sync.get({
+    applyMode: DEFAULT_APPLY_MODE,
+  }, function(items) {
+    if (items.applyMode === 'frame') {
+      // Find the calendar frame element
+      var calendarFrame = document.querySelector('.uEzZIb');
+      if (calendarFrame) {
+        // In frame-only mode, we still create the background elements
+        // but keep them hidden and apply the background to the frame
+        var banner = document.getElementById('gb');
+        var imageDOM = createImageDOM();
+        banner.parentElement.insertBefore(imageDOM, banner);
+        imageDOM.style.display = 'none';
+        
+        // Set initial background on the frame
+        setImageStyle();
+      }
+    } else {
+      // Apply to full page (original behavior)
+      var banner = document.getElementById('gb');
+      var imageDOM = createImageDOM();
+      banner.parentElement.insertBefore(imageDOM, banner);
     }
+    
+    setImageStyle();
+    document.addEventListener("visibilitychange", function() {
+      if (document.visibilityState === 'visible') {
+        setImageStyle();
+      }
+    });
   });
 }
 

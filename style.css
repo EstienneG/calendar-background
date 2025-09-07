@@ -53,6 +53,30 @@ body.xtnDarkOverlay {
   top: 0;
 }
 
+/* Frame-only mode - apply background directly to calendar frame */
+.uEzZIb {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.uEzZIb::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--same-0p3);
+  z-index: -1;
+}
+
+body.xtnFrameOnly #xtnImgHolder {
+  display: none !important;
+}
+
 #xtnImg {
   background-repeat: no-repeat;
   background-position: center;

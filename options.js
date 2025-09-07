@@ -28,6 +28,7 @@ var DEFAULT_IMAGE_URLS = [
 
 // OVERLAY: either lghtOverlay (default) or darkOverlay
 DEFAULT_OVERLAY_MODE = 'lghtOverlay';
+DEFAULT_APPLY_MODE = 'full';
 
 USER_INFO = null;
 function getUserInfo(cb) {
@@ -45,12 +46,25 @@ function loadOverlayMode(overlayMode) {
   document.getElementById('o2').checked = isDark;
 }
 
+function loadApplyMode(applyMode) {
+  document.getElementById('applyFull').checked = (applyMode === 'full');
+  document.getElementById('applyFrame').checked = (applyMode === 'frame');
+}
+
 // Read overlay mode (gets persisted on image save)
 function getOverlayMode() {
   if (document.getElementById('o2').checked) {
     return 'darkOverlay';
   } else {
     return 'lghtOverlay';
+  }
+}
+
+function getApplyMode() {
+  if (document.getElementById('applyFrame').checked) {
+    return 'frame';
+  } else {
+    return 'full';
   }
 }
 
@@ -209,8 +223,10 @@ function loadOptions() {
     imageURL: DEFAULT_IMAGE_URLS,
     overlayMode: DEFAULT_OVERLAY_MODE,
     themeToken: DEFAULT_TOKEN,
+    applyMode: DEFAULT_APPLY_MODE,
   }, function(items) {
     loadOverlayMode(items.overlayMode);
+    loadApplyMode(items.applyMode);
 
     if (!Array.isArray(items.imageURL)) {
       parsedColorHex = urlToMaybeColorHex(items.imageURL);
@@ -247,6 +263,7 @@ function saveSingleOption() {
   chrome.storage.sync.set({
     imageURL: imageURL,
     overlayMode: getOverlayMode(),
+    applyMode: getApplyMode(),
     // NOTE: doesn't reset themeToken
   }, function() {
     updateImageUrl(imageURL);
@@ -277,6 +294,7 @@ function saveMonthOptions() {
   chrome.storage.sync.set({
     imageURL: imageURL,
     overlayMode: getOverlayMode(),
+    applyMode: getApplyMode(),
     themeToken: DEFAULT_TOKEN, // force back to unset
   }, function() {
     var currentMonth = new Date().getMonth();
@@ -298,6 +316,7 @@ function saveColorOptions() {
   chrome.storage.sync.set({
     imageURL: imageURL,
     overlayMode: getOverlayMode(),
+    applyMode: getApplyMode(),
     // NOTE: doesn't reset themeToken
   }, function() {
     updateImageUrl(imageURL);
@@ -332,6 +351,7 @@ function savePurchaseOption() {
     chrome.storage.sync.set({
       imageURL: imageURLs,
       overlayMode: getOverlayMode(),
+      applyMode: getApplyMode(),
       themeToken: fullToken,
     }, function() {
       var currentMonth = new Date().getMonth();
